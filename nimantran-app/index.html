@@ -37,7 +37,10 @@
                     <div class="dot"></div>
                     <div class="dot"></div>
                 </div>
-                <div class="diya-icon">🪔</div>
+                <!-- <div class="diya-icon">🪔</div> -->
+                <div class="ganesh-icon-container">
+                    <img src="elephant.png" alt="Ganesh" class="ganesh-calligraphy-icon">
+                </div>
                 <div class="decoration-dots">
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -64,7 +67,7 @@
         <!-- Updated Event Cards -->
         <div class="events-timeline">
             <div class="event-card">
-                <div class="event-icon">🪔</div>
+                <div class="event-icon">🙏</div> <!-- Changed to Gada -->
                 <div class="event-name" data-en="Hanuman Chalisa" data-or="ହନୁମାନ ଚାଳିସା">Hanuman Chalisa</div>
                 <div class="event-time" data-en="9:00 AM" data-or="ସକାଳ ୯:୦୦ ଟା">9:00 AM</div>
             </div>
@@ -74,9 +77,9 @@
                 <div class="event-time" data-en="June 29th" data-or="ଜୁନ ୨୯ ତାରିଖ">June 29th</div>
             </div>
             <div class="event-card">
-                <div class="event-icon">🪔</div>
+                <div class="event-icon">🍽️</div> <!-- Changed to Plate -->
                 <div class="event-name" data-en="Lunch" data-or="ମଧ୍ୟାହ୍ନ ଭୋଜନ">Lunch</div>
-                <div class="event-time" data-en="1:00 PM" data-or="ଦୁପୁରେ ୧୨:୦୦ ଟା">12:00 PM</div>
+                <div class="event-time" data-en="1:00 PM" data-or="ଦୁପୁରେ ୧:୦୦ ଟା">1:00 PM</div>
             </div>
         </div>
             
@@ -156,38 +159,37 @@
             
             
             <!-- Gallery section with static images -->
-<div class="gallery-section">
-    <h2 class="gallery-title" data-en="Gallery" data-or="ଗ୍ୟାଲେରୀ">Gallery</h2>
-    <div class="gallery-container">
-        <div class="gallery-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">2</span>
-        </div>
-        <div class="gallery-slider" id="gallerySlider">
-            <!-- Slide 1: Family Photo -->
-            <div class="gallery-slide">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=400&fit=crop" alt="Happy Family" class="gallery-photo">
+             <!-- Gallery section with improved design -->
+        <div class="gallery-section">
+            <h2 class="gallery-title" data-en="Gallery" data-or="ଗ୍ୟାଲେରୀ">Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">2</span>
+                </div>
+                
+                <div class="gallery-slider" id="gallerySlider">
+                    <!-- Slide 1: Family Photo -->
+                    <div class="gallery-slide">
+                        <div class="gallery-item">
+                            <img src="./home.jpeg" alt="Happy Family" class="gallery-photo">
+                            <!-- Subtle arrows on image -->
+                            <div class="gallery-arrow-overlay left" onclick="previousSlide()">‹</div>
+                            <div class="gallery-arrow-overlay right" onclick="nextSlide()">›</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2: Home Photo -->
+                    <div class="gallery-slide">
+                        <div class="gallery-item">
+                            <img src="./home.jpeg" alt="Beautiful Home" class="gallery-photo">
+                            <!-- Subtle arrows on image -->
+                            <div class="gallery-arrow-overlay left" onclick="previousSlide()">‹</div>
+                            <div class="gallery-arrow-overlay right" onclick="nextSlide()">›</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Slide 2: Home Photo -->
-            <div class="gallery-slide">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" alt="Beautiful Home" class="gallery-photo">
-                </div>
-            </div>
         </div>
-        
-        <div class="gallery-nav">
-            <button class="gallery-arrow" onclick="previousSlide()">‹</button>
-            <div class="gallery-dots">
-                <div class="gallery-dot active" onclick="goToSlide(0)"></div>
-                <div class="gallery-dot" onclick="goToSlide(1)"></div>
-            </div>
-            <button class="gallery-arrow" onclick="nextSlide()">›</button>
-        </div>
-    </div>
-</div>
             
             <!-- RSVP Toggle Section -->
             <!-- <div class="rsvp-toggle-container">

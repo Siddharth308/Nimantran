@@ -228,17 +228,25 @@ function updateTextContent(lang) {
 // Remove photo upload functionality (since we're using static images now)
 // Keep only the slider functions
 
-// Updated gallery slider - removed photo upload references
 function updateSlider() {
     const slider = document.getElementById('gallerySlider');
     const currentSlideSpan = document.getElementById('currentSlide');
-    const dots = document.querySelectorAll('.gallery-dot');
     
     slider.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
     currentSlideSpan.textContent = currentSlideIndex + 1;
-    
-    // Update dots
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlideIndex);
-    });
 }
+
+function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+    updateSlider();
+}
+
+function previousSlide() {
+    currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+}
+
+// Auto-slide functionality (keep this)
+setInterval(() => {
+    nextSlide();
+}, 6000); // Reduced to 6 seconds for better UX
