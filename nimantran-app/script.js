@@ -2,6 +2,7 @@
 let currentSlideIndex = 0;
 const totalSlides = 2;
 
+
 function updateSlider() {
     const slider = document.getElementById('gallerySlider');
     const currentSlideSpan = document.getElementById('currentSlide');
@@ -17,6 +18,10 @@ function updateSlider() {
 }
 
 function nextSlide() {
+    gtag('event', 'gallery_view', {
+        'event_category': 'engagement',
+        'event_label': 'Gallery Navigation'
+    });
     currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
     updateSlider();
 }
@@ -110,7 +115,7 @@ function callForHelp() {
     const helpText = "🏠 Hi! I'm coming to your Griha Pravesh ceremony on June 29th but need help with directions. Could you please guide me to Near Jasodhara Awas, Adi Sakti Nagar - 5th Lane Road, Lochapada?";
     
     // You can replace this with actual phone number
-    const phoneNumber = ""; // Add your phone number here
+    const phoneNumber = "9777099605"; // Add your phone number here
     
     if (phoneNumber) {
         window.open(`tel:${phoneNumber}`, '_self');
@@ -181,6 +186,10 @@ function handleRSVP(event) {
 
 // Share functionality - WhatsApp only
 function shareWhatsApp() {
+    gtag('event', 'share', {
+        'method': 'WhatsApp',
+        'content_type': 'invitation'
+    });
     const text = "🏠 You're invited to our Griha Pravesh ceremony on June 29th! 🪔\n\nJoin us for:\n📿 Hanuman Chalisa at 9:00 AM\n🍽️ Lunch at 1:00 PM\n\nCan't wait to celebrate with you! ✨";
     const url = window.location.href;
     window.open(`https://wa.me/?text=${encodeURIComponent(text + '\n\n' + url)}`, '_blank');
@@ -199,9 +208,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Language toggle functionality
-let isOdiaActive = false;
+let isOdiaActive = true;
 
 function toggleLanguage() {
+    const newLang = isOdiaActive ? 'English' : 'Odia';
+    gtag('event', 'language_change', {
+        'event_category': 'interaction',
+        'event_label': newLang
+    });
     isOdiaActive = !isOdiaActive;
     const body = document.body;
     
@@ -228,25 +242,80 @@ function updateTextContent(lang) {
 // Remove photo upload functionality (since we're using static images now)
 // Keep only the slider functions
 
+// Initialize variables
+// let currentSlideIndex = 0;
+// let totalSlides = 2; // You have 2 slides: sweethome.png and home.jpeg
+
 function updateSlider() {
     const slider = document.getElementById('gallerySlider');
-    const currentSlideSpan = document.getElementById('currentSlide');
     
-    slider.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-    currentSlideSpan.textContent = currentSlideIndex + 1;
+    if (slider) {
+        slider.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+        console.log('Slider moved to slide:', currentSlideIndex + 1); // Debug line
+    } else {
+        console.error('Gallery slider element not found!'); // Debug line
+    }
+    
+    // Update counter if it exists (you don't have it in HTML, so this won't error)
+    const currentSlideSpan = document.getElementById('currentSlide');
+    if (currentSlideSpan) {
+        currentSlideSpan.textContent = currentSlideIndex + 1;
+    }
 }
 
 function nextSlide() {
+    console.log('Next slide clicked, current:', currentSlideIndex); // Debug line
     currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
     updateSlider();
 }
 
 function previousSlide() {
+    console.log('Previous slide clicked, current:', currentSlideIndex); // Debug line
     currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
     updateSlider();
 }
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Gallery initializing...'); // Debug line
+    
+    // Count actual slides in case you add more later
+    const slides = document.querySelectorAll('.gallery-slide');
+    if (slides.length > 0) {
+        totalSlides = slides.length;
+        console.log('Found', totalSlides, 'slides'); // Debug line
+    }
+    
+    // Set initial position
+    currentSlideIndex = 0;
+    updateSlider();
+});
+
+// Auto-slide functionality (optional - remove if you don't want auto-sliding)
+setInterval(() => {
+    nextSlide();
+}, 6000); // Changes slide every 6 seconds
 
 // Auto-slide functionality (keep this)
 setInterval(() => {
     nextSlide();
 }, 6000); // Reduced to 6 seconds for better UX
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('odia-active');
+    updateTextContent('or');
+});
+
+
+// Track RSVP clicks
+// function toggleRSVP() {
+//     gtag('event', 'rsvp_click', {
+//         'event_category': 'engagement',
+//         'event_label': 'RSVP Button'
+//     });
+//     // Your existing RSVP code
+// }
+
+
+
+

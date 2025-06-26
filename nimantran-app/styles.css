@@ -430,36 +430,18 @@ body {
     margin-bottom: 25px;
 }
 
-.gallery-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(10px);
-    padding: 0; /* Remove padding for full image */
-    border: 2px solid rgba(139, 69, 19, 0.2);
-}
-
-.gallery-slider {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.gallery-slide {
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative; /* For arrow positioning */
-}
+/* Exact fix for your gallery HTML structure */
 
 .gallery-item {
     width: 100%;
-    height: 280px; /* Increased height */
+    height: 280px; /* Fixed height for consistency */
     border-radius: 20px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
     transition: all 0.4s ease;
+    margin: 0 auto;
+    display: block; /* Ensure proper display */
 }
 
 .gallery-item img {
@@ -473,26 +455,29 @@ body {
     color: #8B4513;
     font-size: 1.5rem;
     font-weight: bold;
-}
-/* Subtle arrows on the image */
+    }
+
+
+/* Arrow positioning fixes for mobile */
 .gallery-arrow-overlay {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(139, 69, 19, 0.7);
+    background: rgba(139, 69, 19, 0.8);
     color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    font-size: 1.2rem;
-    z-index: 10;
+    backdrop-filter: blur(5px);
 }
 
 .gallery-arrow-overlay.left {
@@ -503,32 +488,42 @@ body {
     right: 15px;
 }
 
-.gallery-container:hover .gallery-arrow-overlay {
-    opacity: 1;
-}
-
 .gallery-arrow-overlay:hover {
     background: rgba(139, 69, 19, 0.9);
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Remove old navigation */
-.gallery-nav {
-    display: none;
+/* Mobile arrow adjustments */
+@media (max-width: 480px) {
+    .gallery-arrow-overlay {
+        font-size: 0.5rem;
+        width: 15px;
+        height: 15px;
+        padding: 3px 5px;
+    }
+    
+    .gallery-arrow-overlay.left {
+        left: 5px;
+    }
+    
+    .gallery-arrow-overlay.right {
+        right: 5px;
+    }
 }
 
-/* Gallery counter - make it more subtle */
-.gallery-counter {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    backdrop-filter: blur(10px);
-    z-index: 10;
+/* Gallery slide and slider fixes */
+.gallery-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.gallery-slider {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
 }
 
 /* RSVP Toggle Section */
@@ -801,9 +796,7 @@ body.odia-active .language-toggle .lang-or {
 
 /* Gallery Photo Styles */
 .gallery-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
+    object-fit: cover !important;
+    object-position: center !important;
 }
 

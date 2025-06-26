@@ -8,7 +8,7 @@
     <!-- Open Graph Meta Tags for Link Previews -->
     <meta property="og:title" content="🏠 Griha Pravesh Ceremony - June 29th">
     <meta property="og:description" content="Join us for our housewarming ceremony! Hanuman Chalisa at 9 AM, Lunch at 1 PM. Near Jasodhara Awas, Lochapada.">
-    <meta property="og:image" content="https://yourdomain.com/house-image.jpg">
+    <meta property="og:image" content="./home3.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://yourdomain.com">
@@ -19,13 +19,23 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="🏠 Griha Pravesh Ceremony - June 29th">
     <meta name="twitter:description" content="Join us for our housewarming ceremony! Hanuman Chalisa at 9 AM, Lunch at 12 PM.">
-    <meta name="twitter:image" content="https://yourdomain.com/house-image.jpg">
+    <meta name="twitter:image" content="./home3.png">
     
     <!-- WhatsApp specific -->
     <meta property="og:image:alt" content="Beautiful house for Griha Pravesh ceremony">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-364M4KGKN1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-364M4KGKN1');
+</script>
     
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="invitation-container">
         <div class="invitation-content">
@@ -97,7 +107,36 @@
                     </button>
                 </div>
             </div>
-
+            <div class="gallery-section">
+                <h2 class="gallery-title" data-en="Gallery" data-or="ଗ୍ୟାଲେରୀ">Gallery</h2>
+                <div class="gallery-container">
+                   
+                    
+                    <div class="gallery-slider" id="gallerySlider">
+                         <!-- Slide 1: Family Photo -->
+                         <div class="gallery-slide">
+                            <div class="gallery-item">
+                                <img src="./sweethome.png" alt="Happy Family" class="gallery-photo">
+                                <!-- Subtle arrows on image -->
+                                <div class="gallery-arrow-overlay left" onclick="previousSlide()">‹</div>
+                                <div class="gallery-arrow-overlay right" onclick="nextSlide()">›</div>
+                            </div>
+                        </div>
+    
+                        
+                        
+                        <!-- Slide 2: Home Photo -->
+                        <div class="gallery-slide">
+                            <div class="gallery-item">
+                                <img src="./home.jpeg" alt="Beautiful Home" class="gallery-photo">
+                                <!-- Subtle arrows on image -->
+                                <div class="gallery-arrow-overlay left" onclick="previousSlide()">‹</div>
+                                <div class="gallery-arrow-overlay right" onclick="nextSlide()">›</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Map section -->
             <div class="map-section">
                 <h3 class="map-title" data-en="🗺️ Get Directions" data-or="🗺️ ରାସ୍ତା ଦେଖନ୍ତୁ">🗺️ Get Directions</h3>
@@ -111,7 +150,7 @@
                         🛣️ Need Help Finding Us?
                     </button>
                     <div class="route-help-section" id="routeHelpSection">
-                        <div class="route-image-container">
+                        <!-- <div class="route-image-container">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0f0f0'/%3E%3Cpath d='M50 250 Q100 200 150 180 L200 160 Q250 140 300 120 L350 100' stroke='%234285f4' stroke-width='6' fill='none'/%3E%3Ccircle cx='50' cy='250' r='8' fill='%23ea4335'/%3E%3Ccircle cx='350' cy='100' r='8' fill='%2334a853'/%3E%3Ctext x='60' y='245' font-family='Arial' font-size='10' fill='%23333'%3EStart%3C/text%3E%3Ctext x='320' y='95' font-family='Arial' font-size='10' fill='%23333'%3EDestination%3C/text%3E%3Ctext x='80' y='20' font-family='Arial' font-size='12' fill='%23666'%3ESRIMA NAGAR%3C/text%3E%3Ctext x='200' y='280' font-family='Arial' font-size='10' fill='%23666'%3E13 min route%3C/text%3E%3C/svg%3E" alt="Route to venue" class="route-image">
                             <div class="route-overlay">
                                 <div class="route-step route-step-1">
@@ -130,10 +169,10 @@
                                     <div class="step-number">4</div>
                                     <div class="step-text">Arrive at Jasodhara Awas, 5th Lane</div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div> -->
                         
-                        <div class="route-directions">
+                        <!-- <div class="route-directions">
                             <h4>📍 Step-by-Step Directions</h4>
                             <ol class="directions-list">
                                 <li><strong>Start:</strong> From Sriram Nagar Junction</li>
@@ -144,15 +183,16 @@
                             <div class="route-info">
                                 <span class="route-time">🕐 13 minutes</span>
                                 <span class="route-distance">📏 Approx 3.2 km</span>
+                            </div> -->
+                            <div class="navigation-help">
+                                <!-- <p><strong>Still need help?</strong></p> -->
+                                <button class="help-contact-btn" onclick="callForHelp()">
+                                    📞 Call for Navigation Help
+                                </button>
                             </div>
                         </div>
                         
-                        <div class="navigation-help">
-                            <p><strong>Still need help?</strong></p>
-                            <button class="help-contact-btn" onclick="callForHelp()">
-                                📞 Call for Navigation Help
-                            </button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -160,36 +200,7 @@
             
             <!-- Gallery section with static images -->
              <!-- Gallery section with improved design -->
-        <div class="gallery-section">
-            <h2 class="gallery-title" data-en="Gallery" data-or="ଗ୍ୟାଲେରୀ">Gallery</h2>
-            <div class="gallery-container">
-                <div class="gallery-counter">
-                    <span id="currentSlide">1</span> / <span id="totalSlides">2</span>
-                </div>
-                
-                <div class="gallery-slider" id="gallerySlider">
-                    <!-- Slide 1: Family Photo -->
-                    <div class="gallery-slide">
-                        <div class="gallery-item">
-                            <img src="./home.jpeg" alt="Happy Family" class="gallery-photo">
-                            <!-- Subtle arrows on image -->
-                            <div class="gallery-arrow-overlay left" onclick="previousSlide()">‹</div>
-                            <div class="gallery-arrow-overlay right" onclick="nextSlide()">›</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 2: Home Photo -->
-                    <div class="gallery-slide">
-                        <div class="gallery-item">
-                            <img src="./home.jpeg" alt="Beautiful Home" class="gallery-photo">
-                            <!-- Subtle arrows on image -->
-                            <div class="gallery-arrow-overlay left" onclick="previousSlide()">‹</div>
-                            <div class="gallery-arrow-overlay right" onclick="nextSlide()">›</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
             
             <!-- RSVP Toggle Section -->
             <!-- <div class="rsvp-toggle-container">
@@ -225,5 +236,6 @@
     </div>
 
     <script src="script.js"></script>
+    
 </body>
 </html>
